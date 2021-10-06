@@ -32,7 +32,6 @@ struct ContentView: View {
                                 .id(2)
                         }
                         .onChange(of: scrollTarget) { target in
-                            scrollTarget = nil
                             withAnimation {
                                 proxy.scrollTo(target, anchor: .center)
                             }
@@ -43,7 +42,7 @@ struct ContentView: View {
             }
             
             Button("Click Me") {
-                scrollTarget = 2
+                scrollTarget = (scrollTarget != 2) ? 2 : 1
             }
             .padding(20)
         }
